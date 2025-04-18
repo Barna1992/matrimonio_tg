@@ -1,0 +1,981 @@
+/* Basic reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body, html {
+    height: 100%;
+    color: black;
+    background-color: #DCDBD7;
+    font-family: 'Arsenal';
+    text-transform: uppercase !important;
+  }
+  
+  /* Styling for the hero section */
+  .hero-section {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: white;
+    position: relative;
+  }
+  
+  .hero-section-variant {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    padding-top: 4rem;
+  }
+  
+  
+  .hero-section-bg {
+    background-image: url('/static/images/bg0.jpeg'); /* Replace with your image URL */
+    justify-content: center;
+    align-items: end;
+    flex-direction: row !important;
+    background-size: cover;
+    background-position: center;
+    transition: background-image 0.5s ease-in-out; 
+    font-family: 'Arsenal';
+  }
+  
+  .hero-section-bg {
+    transition: opacity 1s ease; /* Add transition for opacity */
+  }
+  
+  .hero-section-bg-lista {
+    /* background-image: url('/static/images/bg0.jpeg');   Replace with your image URL */
+    justify-content: center;
+    align-items: end;
+    flex-direction: row !important;
+    background-size: contain;
+    background-position: center;
+    transition: background-image 0.5s ease-in-out; 
+    font-family: 'Arsenal';
+  }
+  
+  /* Navigation bar styles */
+  .top-nav ul {
+    list-style: none;
+    position: fixed;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    justify-content: center;
+    z-index: 10;
+    width: 100%;
+    font-size: 1.5rem;
+    font-family: 'Arsenal' !important;
+  }
+  
+  .top-nav ul.active {
+    background-color: #fff;
+  }
+  
+  .top-nav li {
+    margin: 20px;
+  }
+  
+  .top-nav a {
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+    padding-bottom: 0.5rem;
+  }
+  
+  .top-nav .selected {
+    border-bottom: 1px solid black
+  }
+  
+  
+  
+  /* Main title and subtitle styles */
+  .save-the-date {
+    text-align: center;
+    padding: 3rem;
+  }
+  
+  .save-the-date h1 {
+    font-size: 4rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  .save-the-date p {
+    font-size: 2rem;
+    letter-spacing: 1px;
+    font-weight: bold;
+    padding: 1rem;
+  }
+  
+  /* Media queries for tablet devices */
+  @media (max-width: 768px) {
+    .save-the-date h1 {
+      font-size: 3rem;
+    }
+  
+    .save-the-date p {
+      font-size: 1rem;
+    }
+  }
+  
+  /* Media queries for mobile devices */
+  @media (max-width: 480px) {
+    .top-nav ul {
+      flex-direction: column;
+      top: 10px;
+      left: 10px;
+      transform: none;
+    }
+  
+    .top-nav li {
+      padding: 10px;
+    }
+  
+    .save-the-date h1 {
+      font-size: 2rem;
+    }
+  
+    .save-the-date p {
+      font-size: 0.8rem;
+    }
+  }
+  
+  
+  
+  .agenda {
+    width: 100%;
+  }
+  
+  .agenda__month {
+    position: relative;
+    padding-bottom: 4rem;
+    
+    &:before {
+      content: '';
+      display: block;
+      width: 4px;
+      height: 100%;
+      position: absolute;
+      top: 0;
+      left: calc(50% - 2px);
+      background: #8dbedd;
+      z-index: 0;
+    }
+  }
+  
+  .agenda__month__title {
+    position: relative;
+    width: 8rem;
+    height: 8rem;
+    padding: 4em;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 4rem;
+    background: #8dbedd;
+    border-radius: 50%;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: black;
+    text-align: center;
+  }
+  
+  .agenda__list {
+    list-style: none;
+    margin: 0;
+    position: relative;
+  
+    li + li {
+      margin-top: 4rem;
+    }
+  }
+  
+  .agenda__item__detail {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    position: relative;
+    background: #fff;
+    border-radius: 20px;
+  
+    @media (min-width: 1024px) {
+      flex-direction: row;
+    }
+  
+    &:before {
+      content:'';
+      display: block;
+      width: 1.2rem;
+      height: 1.2rem;
+      background: #8dbedd;
+      position: absolute;
+      transform: rotate(45deg);
+      top: calc(50% - 0.6rem);
+    }
+  
+    .horaires {
+      flex-basis: 60%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 3.5rem;
+      font-weight: bold;
+      background-image: url('/static/images/girasoli.png');
+      background-size: 100% 100%;
+      background-repeat: no-repeat;
+    }
+  
+    .desc {
+      padding: 2rem;
+      text-align: left;
+      background-color: #ededed94;
+    }
+    .desc p {
+      font-size: 2.5rem;
+      padding: 2rem;
+      text-align: center;
+    }
+  }
+  
+  .fumetto-rifugio {
+    position: absolute;
+    z-index: 1;
+    width: 300px;
+    left: 150px;
+    margin-top: 700px;
+  }
+  
+  .allergie {
+    margin-top: 450px !important;  
+  }
+  
+  .agenda__item {
+  
+     .agenda__item__detail {
+  
+        .edit__btn {
+          position: absolute;
+          top: -1em;
+          right: -1em;
+        }
+  
+      }
+    
+    @media (min-width: 640px) {
+  
+      .agenda__item__article {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+  
+        &:before {
+          content: '';
+          display: block;
+          order: 2;
+          flex-basis: 40%;
+  
+        }
+      }
+  
+      .agenda__item__date {
+        order: 1;
+      }
+  
+      .agenda__item__detail {
+        order: 0;
+        flex-basis: 40%;
+      }
+  
+      &:nth-child(1n + 1) {
+        .agenda__item__detail {
+  
+          &:before {
+            right: -0.6rem;
+          }
+        }
+      }
+  
+      &:nth-child(1n + 2) {
+        .agenda__item__article {
+          &:before {
+            order: 0;
+          }
+        }
+  
+        .agenda__item__detail {
+          order: 2;
+  
+          &:before {
+            left: -0.6rem;
+          }
+          .edit__btn {
+            left: -1em;
+          }
+          @media (min-width: 1024px) {
+            .horaires {
+              order: 1;
+            }
+          }
+        }
+      }
+  
+    }
+  }
+  
+  .agenda__item__title {
+    font-weight: bold;
+    color: black;
+    text-align: center;
+    padding: 1rem;
+    font-size: 3rem;
+  }
+  
+  .desc p {
+    color: black;
+  }
+  
+  .agenda__item__date {
+  
+    display: block;
+  
+    @media (min-width: 640px) {
+      width: 6rem;
+    }
+  
+    line-height: 4rem;
+    font-size: 1.4rem;
+  
+  }
+  
+  #timeline {
+    padding: 4rem;
+  }
+  
+  .img-card {
+    padding: 1rem;
+    border-radius: 20%;
+    max-width: 14rem;
+    max-height: 14rem;  
+  }
+  
+  .object-card {
+    background-color: white;
+    margin: 1.5rem;
+    max-width: 320px;
+  }
+  
+  
+  .object-card:hover {
+    background-color: #EDEDED;
+  }
+  
+  .object-cart:hover {
+    cursor: pointer;
+  }
+  
+  .object-cart {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 1.5rem;
+    background-color: #cac7c7;
+    cursor: pointer;
+  
+  }
+  
+  .object-cart-expired {
+    text-align: center;
+    font-size: 1.5rem;
+    background-color: #cac7c7;
+    font-family: 'Arsenal';
+    height: 55px;
+    color: red;
+  }
+  
+  .object-cart-expired p {
+    padding: 0;
+    font-size: 2.5rem;
+  }
+  
+  .object-img img {
+    max-width: 20rem;
+  }
+  
+  .cart-icon {
+    background-color: #cac7c7;
+    padding: 0.5rem 0.5rem;
+  }
+  
+  .heart-container {
+    display: flex;
+    justify-content: center;
+  }
+  
+  
+  @keyframes heartScaleAnimation {
+    0% {
+        transform: scale(0.7);
+    }
+    50% {
+        transform: scale(1);
+    }
+    100% {
+        transform: scale(0.7);
+    }
+  }
+  
+  
+  @keyframes heartScaleAnimationSmall {
+    0% {
+        transform: scale(0.3);
+    }
+    50% {
+        transform: scale(0.5);
+    }
+    100% {
+        transform: scale(0.3);
+    }
+  }
+  
+  .heart-container img {
+    animation: heartScaleAnimation 2s infinite;
+  }
+  
+  .cart-icon img{
+    max-width: 2rem;
+  }
+  
+  .cart-text {
+    width: 100%;
+    padding: 0 1rem;
+    text-align: center;
+    font-weight: bolder;
+    font-family: 'Arsenal';
+  }
+  
+  .object-title {
+    text-align: center;
+    padding: 1.5rem;
+    font-weight: bold;
+    font-size: 2rem;
+    color:#000;
+    height: 10rem;
+  }
+  
+  .object-buy {
+    padding: 1rem;
+    color: red;
+    font-size: 2rem;
+    font-weight: bold;
+    text-align: center;
+  }
+  
+  
+  .add {
+    background-color: #4985C3;
+    border-radius: 50%;
+    color: white;
+    padding: 1rem;
+  }
+  
+  .agenda__item__detail {
+    opacity: 0; /* Initial state with full transparency */
+    transition: opacity 2s ease-in-out; /* Transition effect for the opacity property */
+  }
+  
+  .agenda__item__detail.visible {
+    opacity: 1; /* Final state with full opacity */
+  }
+  
+  
+  @keyframes marginAnimation {
+    from {
+      margin-bottom: 500px;
+    }
+    to {
+      margin-bottom: 0px;
+    }
+  }
+  
+  .save-the-date {
+    animation: marginAnimation 3s ease forwards;
+  }
+  
+  .empty-p {
+    height: 300px;
+  }
+  
+  .countdown-bg {
+    background-image: url('/static/images/cdown.png');
+    background-size: cover;
+    background-position: center;
+    width: 100%;
+    height: 100%;
+    max-height: fit-content;
+  }
+  
+  #welcome {
+    background-color: #fff;
+    color: black;
+    text-align: center;
+    height: 2100px;
+  }
+  
+  #welcome h1 {
+    font-size: 5rem;
+    padding: 5rem;
+  }
+  
+  #welcome h4, p {
+    font-size: 40px !important;
+    padding: 3rem;
+  }
+  
+  .widget-wrap {
+    padding: 40px;
+    border-radius: 20px;
+    background: rgba(0, 0, 0, 0.1);
+    width: 50%;
+    margin-left: 25%;
+    margin-top: 5%;
+  }
+  
+  .countdown-bg p {
+    font-weight: bolder;
+    font-size: 5rem;
+  }
+  .countdown {
+    display: flex;
+    margin: 0 auto;
+    min-width: 500px;
+  }
+  
+  .countdown .cell {
+    flex-grow: 1;
+    flex-basis: 0;
+    padding: 10px;
+  }
+  
+  .countdown .digits {
+    font-size: 4rem;
+    color: #000;
+    background: #fff;
+    padding: 10px;
+    border-radius: 5px;
+  }
+  
+  .countdown .text {
+    margin-top: 10px;
+    color: #ddd;
+    font-size: 2rem;
+  }
+  
+  .two-side-pictures {
+    display: flex;
+    justify-content: space-around;
+    padding-top: 4rem;
+  }
+  
+  .two-side-pictures img {
+    max-width: 50%;
+    border-radius: 50%;
+  }
+  
+  
+  @keyframes iconAnimation {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+  
+  .icon-container {
+    border: solid 3px #8dbedd;
+    padding: 1.5rem;
+    border-radius: 50%;
+    background-color: #fff;
+    animation: iconAnimation 3s ease forwards;
+  }
+  
+  .menu-mobile {
+    display: none;
+  }
+  
+  .action-button {
+    background-color: #8dbedd;
+    border-radius: 20px;
+    min-width: 200px;
+    padding: 2rem;
+    text-align: center;
+    font-size: 2rem;
+  }
+  
+  .action-button a {
+    text-decoration: none;
+    color: inherit;
+  }
+  
+  
+  .globe-img {
+    padding: 2rem;
+    max-width: 800px;
+  }
+  
+  .subtitle {
+    font-size: 50px !important;
+  }
+  
+  #wedding-list h2 {
+    text-align: center;
+    font-size: 2.5rem;
+  }
+  
+  .navbar-menu {
+    position: fixed;
+    top: 0px;
+    z-index: 10;
+    width: 100%;
+    background-color: white;
+    display: flex;
+    justify-content: flex-end;
+  }
+  
+  .navbar-menu img {
+    max-width: 30px;
+    flex: right;
+    margin-right: 0.5rem;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+  }
+  
+  .badge {
+    position: absolute;
+    top: 2px;
+    right: 30px;
+    background-color: red;
+    color: white;
+    border-radius: 50%;
+    padding: 3px 6px;
+    font-size: 10px;
+    font-family: arial;
+    font-weight: bolder;
+  }
+  
+  footer {
+    background-color: #d3d3d338;
+    padding: 20px; 
+    text-align: center;
+    font-family: 'Caveat';
+    font-size: 30px;
+    p {
+      padding: 10px;
+    }
+    h1 {
+      font-size: 45px;
+    }
+  }
+  
+  
+  #home-items-container {
+    padding-bottom: 40px;
+  }
+  
+  /* Styles for the closed menu button */
+  .mobile-menu-button {
+    cursor: pointer;
+    display: none;
+  }
+  
+  /* Styles for the open menu */
+  .mobile-menu {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: white;
+    z-index: 1000;
+  }
+  
+  .mobile-menu-button img {
+    max-width: 30px;
+    position: fixed;
+    z-index: 10;
+    right: 5px;
+    top: 5px;
+  }
+  
+  .mobile-menu ul {
+    list-style: none;
+    padding: 0;
+    text-align: center;
+  }
+  
+  .mobile-menu li {
+    margin: 1rem 0;
+    border-bottom: solid 1px #ffffffcb
+  }
+  
+  .mobile-menu a {
+    text-decoration: none;
+    color: black;
+    font-size: 1.5rem;
+  }
+  
+  .small-screen {
+    display: none;
+  }
+  
+  .large-screen {
+    display: block;
+  }
+  
+  .agenda h2 {
+    text-align: center;
+    font-size: 2.5rem;
+    font-family: 'Arsenal';
+    padding: 2rem 0;
+  }
+  
+  .lista-nozze-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  
+  .lista-nozze-container .object-card {
+    margin: 2.5rem;
+  }
+  
+  #wedding_list h2 {
+    font-size: 3rem;
+    padding: 3.5rem;
+    margin-top: 1rem;
+  }
+  
+  @media screen and (max-width: 500px) {
+    #welcome h1 {
+      font-size: 60px;
+      padding: 60px
+    }
+  
+    #welcome h4, p {
+      font-size: 50px !important;
+      padding: 50px;
+    }
+  
+    #welcome p {
+      font-size: 40px !important;
+    }
+  
+    footer {
+      p {
+        padding: 10px;
+        font-size: 25px !important;
+      }
+      h1 {
+        font-size: 25px;
+      }
+    }
+  
+    .top-nav {
+        display: none;
+    }
+    .horaires {
+      background-image: url('/static/images/girasoli-phone.jpeg') !important;
+    }
+    .agenda__item__title {
+      font-size: 2.5rem;
+    }
+    .two-side-pictures {
+      display: block;
+    }
+    .hero-section {
+      height: fit-content;
+    }
+    #home {
+      height: 100vh;
+    }
+    #welcome {
+      height: 2900px;
+    }
+    .agenda__item__detail {
+      &::before {
+        display: none;
+      }
+    }
+    .fumetto-rifugio {
+      position: absolute;
+      z-index: 1;
+      width: 250px;
+      left: 50px;
+      margin-top: 0px !important;
+    }
+  
+  
+    .allergie {
+      margin-top: 500px !important;
+      z-index: 2;  
+    }
+  
+    .widget-wrap {
+      padding: 40px 5px;
+      border-radius: 20px;
+      background: rgba(0, 0, 0, 0.1);
+      width: 50%;
+      margin-left: 25%;
+      margin-top: 5%;
+    }
+    .countdown .digits {
+      font-size: 2rem;
+      color: #000;
+      background: #fff;
+      padding: 5px;
+      border-radius: 5px;
+      min-width: 40px;
+    }
+    .countdown {
+      display: block;
+      min-width: auto;
+    }
+    .countdown .text {
+      color: #000;
+    }
+  
+    .countdown-bg {
+      background-position: left;
+      padding-top: 2rem;
+      background-image: url('/static/images/cdown_long.png');
+    }
+  
+    .empty-p {
+      height: 200px;
+    }
+  
+    .cell {
+      display: flex;
+      justify-content: space-between;
+    }
+    .lista-nozze-container {
+      display: block;
+      max-width: 90%;
+    }
+    .object-img img {
+      max-width: 100%;
+    }
+    .desc p, h4 {
+      font-size: 2rem !important;
+      padding: 0.5rem;
+    }
+    .img-card {
+      border-radius: 20%;
+      max-width: 100%;
+    }
+    .agenda__item__date {
+      max-width: 100%;
+    }
+    .menu-mobile {
+      display: block;
+    }
+    .menu-mobile img {
+      max-width: 30px;
+      position: fixed;
+      z-index: 10;
+      right: 5px;
+      top: 5px;
+    }
+    .globe-img {
+      padding: 1rem;
+      max-width: 400px;
+    }
+    #wedding_list h2 {
+      padding: 1rem;
+      text-align: center;
+      padding-top: 60px !important;
+      font-size: 50px;
+    }
+    .badge {
+      position: absolute;
+      top: 2px;
+      right: 30px;
+      background-color: red;
+      color: white;
+      border-radius: 50%;
+      padding: 3px 6px;
+      font-size: 10px;
+      font-family: arial;
+      font-weight: bolder;
+      display: none;
+    }
+    .mobile-menu-button {
+      display: block;
+    }
+    .icon-container {
+      transform: scale(0.7);
+    }
+    .agenda__item__date {
+      transform: scale(0.7);
+    }
+    .small-screen {
+      display: block;
+    }
+    .object-title { 
+      height: auto;
+    }
+   
+    .heart-container img {
+      animation: heartScaleAnimationSmall 2s infinite;
+    }
+    
+    .large-screen {
+      display: none;
+    }
+  
+  }
+  
+  
+  @keyframes scaleAnimation {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.4);
+    }
+    100% {
+        transform: scale(1);
+    }
+  }
+  
+  .animate-cart {
+    animation: scaleAnimation 1s ease-in-out;
+  }
+  
+  @keyframes shakeAnimation {
+    0%, 100% {
+        transform: translateX(0);
+    }
+    25%, 75% {
+        transform: translateX(-5px);
+    }
+    50% {
+        transform: translateX(5px);
+    }
+  }
+  
+  .shake-effect {
+    animation: shakeAnimation 1s ease-in-out;
+  }
+  
+  
+  .image-container-timeline {
+    display: flex;
+    justify-content: center;
+  }

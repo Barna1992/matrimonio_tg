@@ -1,0 +1,94 @@
+body {
+    font-family: 'Arsenal';
+    margin: 0;
+    padding: 0;
+    text-transform: uppercase !important;
+}
+
+h1 {
+    text-align: center;
+}
+
+#cart-items-container {
+    max-width: fit-content;
+    margin: 20px auto;
+}
+
+.cart-item {
+    border: 1px solid #ccc;
+    margin-bottom: 10px;
+    padding: 10px;
+    background-color: rgb(253 253 253 / 50%) !important;
+    width: 80%;
+    margin-left: 8%;
+}
+
+.cart-item input {
+    width: 40px;
+    text-align: center;
+}
+
+.total-price {
+    margin-top: 5px;
+}
+
+#cart-total {
+    margin-top: 20px;
+    text-align: right;
+}
+
+button {
+    display: block;
+    margin: 20px auto;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+/* Optional: Style for the purchase button */
+button:hover {
+    background-color: #f8f8f8;
+}
+
+img {
+    max-width: 100%;
+    padding: 1rem;
+  }
+
+.delete-button {
+    display: flex;
+    justify-content: end;
+    cursor: pointer;
+}
+
+#cart-total {
+    text-align: center;
+}
+
+.item-row {
+    display: flex;
+    padding: 1rem;
+    justify-content: center;
+    align-items: center;
+}
+.item-row input {
+    margin: 1rem;
+}
+
+.item-row p {
+    padding: 1rem 0;
+}
+
+.total-price {
+    text-align: center;
+}
+.total-price span {
+    font-weight: 900;
+}
+
+.image-container {
+    display: flex;
+    justify-content: center;
+}
+
+

@@ -1,0 +1,462 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Matrimonio Tamara & Giovanni{% endblock %}</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+          theme: {
+            fontFamily: {
+              'body': ['"Poppins"'],
+          }
+        }
+     }
+      </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Waterfall&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css" integrity="sha512-5Hs3dF2AEPkpNAR7UiOHba+lRSJNeM2ECkwxUIxC1Q/FLycGTbNapWXB4tP889k5T5Ju8fs4b1P5z/iB4nMfSQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        body {
+            text-transform: uppercase !important;
+            background-color: #DCDBD7;
+            font-family: 'Poppins', sans-serif;
+        }
+        .font-italic {
+            font-family: 'WaterFall', sans-serif;
+        }
+        .birthstone-bounce-regular {
+            font-family: "Birthstone Bounce", serif;
+            font-weight: 400;
+            font-style: normal;
+        }
+        
+        .birthstone-bounce-medium {
+            font-family: "Birthstone Bounce", serif;
+            font-weight: 500;
+            font-style: normal;
+        }
+  
+        .slideshow {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+            animation: slideshow 50s infinite;
+        }
+
+        #slideshow {
+            margin-top: 40px;
+        }
+        .arsenal-regular {
+        font-family: "Arsenal", serif;
+        font-weight: 400;
+        font-style: normal;
+        }
+
+        .arsenal-bold {
+        font-family: "Arsenal", serif;
+        font-weight: 700;
+        font-style: normal;
+        }
+
+        .arsenal-regular-italic {
+        font-family: "Arsenal", serif;
+        font-weight: 400;
+        font-style: italic;
+        }
+
+        .arsenal-bold-italic {
+        font-family: "Arsenal", serif;
+        font-weight: 700;
+        font-style: italic;
+        }
+
+
+
+        #section3 {
+            background-image: url('/static/wedding/images/slide1.jpeg');
+            height: 1500px;
+        }
+
+
+        /* Keyframes for slideshow effect */
+        @keyframes slideshow {
+            0% { background-image: url('/static/wedding/images/v1.jpeg'); }
+            10% { background-image: url('/static/wedding/images/v2.jpeg'); }
+            20% { background-image: url('/static/wedding/images/v3.jpeg'); }
+            30% { background-image: url('/static/wedding/images/v4.jpeg'); }
+            40% { background-image: url('/static/wedding/images/v5.jpeg'); }
+            50% { background-image: url('/static/wedding/images/v6.jpeg'); }
+            60% { background-image: url('/static/wedding/images/v7.jpeg'); }
+            70% { background-image: url('/static/wedding/images/v8.jpeg'); }
+            80% { background-image: url('/static/wedding/images/v9.jpeg'); }
+            90% { background-image: url('/static/wedding/images/v10.jpeg'); }
+            100% { background-image: url('/static/wedding/images/v1.jpeg'); }
+        }
+
+        /* Text styling to make content readable over the background */
+        #countdown {
+            text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.8);
+        }
+
+        section {
+            height: 100vh; /* Full screen height */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        .slideshow-container {
+            position: relative;
+        }
+
+        .slides {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+        }
+
+        .slide {
+            flex: 0 0 100%;
+        }
+
+        @media screen and (min-width: 1024px) {
+            .desktop-wrapper20 {
+                transform: scale(2.0);
+            }
+            .desktop-wrapper15 {
+                transform: scale(1.5);
+            }
+            #dropdown-menu ul {
+                font-size: 2.0rem;
+            }
+            #dropdown-menu li {
+                padding: 20px;
+            }
+            .slideshow-container {
+                height: 24rem !important;
+            }
+            .slideshow-container img {
+                height: 24rem !important;
+            }            
+        }
+
+        .timeline {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            position: relative;
+            max-width: 600px;
+            margin: auto;
+        }
+        
+        .timeline::before {
+            content: '';
+            position: absolute;
+            width: 4px;
+            background-color: #000;
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        
+        .event {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
+            margin: 20px 0;
+            position: relative;
+        }
+        
+        .event-content {
+            background: white;
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: 2px 2px 10px rgba(0,0,0,0.1);
+            position: relative;
+            max-width: 200px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+        
+        .event i {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+        
+        .event::after {
+            content: '';
+            width: 15px;
+            height: 15px;
+            background-color: black;
+            border-radius: 50%;
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            top: 50%;
+        }
+        
+        @media (min-width: 768px) {
+            .timeline {
+                flex-direction: row;
+                justify-content: center;
+                flex-wrap: wrap;
+            }
+            .event {
+                width: 45%;
+            }
+            .iban {
+                font-size: 2.5rem !important;
+            }
+
+        }
+
+        @media (max-width: 768px) {
+            .timeline {
+                width: 100%;
+            }
+            .timeline-content-container {
+                justify-content: space-between
+            }
+            .left-small {
+                width: 130px;
+            }
+            .left-small img {
+                margin-left: 30px;
+                margin-right: 10px;
+            }
+            .right-small {
+                margin-left: 20px;
+            }
+            #section3 {
+                background-image: url('/static/wedding/images/slide1_small.jpeg');
+            }
+            #section2 {
+                min-height: 1000px;
+            }
+            .my-20 {
+                margin-top: 10rem !important;
+            }
+            #section4 {
+                min-height: 500px;
+            }
+            #slideshow {
+                max-height: 650px !important;
+            }
+        }
+
+
+        @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;500&display=swap");
+
+
+        .timeline {
+        width: 80%;
+        height: auto;
+        max-width: 800px;
+        margin: 0 auto;
+        position: relative;
+        }
+
+        .timeline ul {
+        list-style: none;
+        }
+        .timeline ul li {
+        padding: 20px;
+        border-radius: 10px;
+        margin-bottom: 20px;
+        }
+        .timeline ul li:last-child {
+        margin-bottom: 0;
+        }
+        .timeline-content h1 {
+        font-weight: bold;
+        font-size: 25px;
+        line-height: 30px;
+        margin-bottom: 10px;
+        }
+        .timeline-content p {
+        font-size: 16px;
+        line-height: 30px;
+        font-weight: 300;
+        }
+        .timeline-content .date {
+        font-size: 12px;
+        font-weight: 300;
+        margin-bottom: 10px;
+        letter-spacing: 2px;
+        }
+        @media only screen and (min-width: 768px) {
+        .timeline:before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 2px;
+            height: 100%;
+            background-color: gray;
+        }
+        .timeline ul li {
+            width: 50%;
+            position: relative;
+            margin-bottom: 50px;
+        }
+        .timeline ul li:nth-child(odd) {
+            float: left;
+            clear: right;
+            transform: translateX(-30px);
+            border-radius: 20px 0px 20px 20px;
+        }
+        .timeline ul li:nth-child(even) {
+            float: right;
+            clear: left;
+            transform: translateX(30px);
+            border-radius: 0px 20px 20px 20px;
+        }
+        .timeline ul li::before {
+            content: "";
+            position: absolute;
+            height: 20px;
+            width: 20px;
+            border-radius: 50%;
+            background-color: gray;
+            top: 0px;
+        }
+        .timeline ul li:nth-child(odd)::before {
+            transform: translate(50%, -50%);
+            right: -30px;
+        }
+        .timeline ul li:nth-child(even)::before {
+            transform: translate(-50%, -50%);
+            left: -30px;
+        }
+        .timeline-content .date {
+            position: absolute;
+            top: -30px;
+        }
+
+        }
+        .timeline-content-container {
+            margin: 0 30px;
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+        }
+        .timeline-content-container img {
+            max-width: 100px;
+            margin: 0 20px;
+        }
+        .timeline-content {
+            min-width: 100px;
+        }
+
+        .bgcolor-green {
+            background-color: #476251 !important;
+        }
+
+
+
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />  
+</head>
+<body class="text-gray-800 font-body">
+    <header id="header" class="fixed top-0 left-0 w-full z-50 bg-transparent transition-all duration-300">
+        <div class="flex justify-between items-center px-4 py-4">
+            <!-- Menu Icon Aligned Right -->
+            <button id="menu-toggle" class="ml-auto text-white hover:text-gray-300 focus:outline-none text-3xl">
+                ☰
+            </button>
+            <!-- Dropdown Menu -->
+            <nav id="dropdown-menu" class="hidden absolute top-full left-0 w-full bg-white shadow-md rounded-b-md transition-all duration-300">
+                <ul class="flex flex-col items-center py-4 space-y-4 text-lg font-medium text-gray-800">
+                    <li><a href="#section1" class="hover:text-gray-500">Il nostro matrimonio</a></li>
+                    <li><a href="#section2" class="hover:text-gray-500">La giornata</a></li>
+                    <li><a href="#section3" class="hover:text-gray-500">Confermaci la presenza</a></li>
+                    <li><a href="#section4" class="hover:text-gray-500">Lista nozze</a></li>
+                </ul>
+            </nav>
+            
+        </div>
+    </header>
+    
+    
+    <main class="container mx-auto">
+        {% block content %}
+        {% endblock %}
+    </main>
+    <footer class="bgcolor-green text-white text-center py-4">
+        <p>&copy; 2025 Tamara & Giovanni</p>
+    </footer>
+
+    <script>
+        const header = document.getElementById("header");
+        const headerDiv = document.querySelector("header div");
+        const main = document.querySelector("main");
+        const menuToggle = document.getElementById("menu-toggle");
+        const dropdownMenu = document.getElementById("dropdown-menu");
+
+        let menuOpen = false;
+    
+        // Scroll and menu toggle logic
+        window.addEventListener("scroll", () => {
+            if (window.scrollY > 50 || menuOpen) {
+                header.classList.add("bg-white", "shadow");
+                header.classList.remove("bg-transparent");
+                menuToggle.classList.add("text-black");
+                menuToggle.classList.remove("text-white");
+            } else {
+                header.classList.add("bg-transparent");
+                header.classList.remove("bg-white", "shadow");
+                menuToggle.classList.add("text-white");
+                menuToggle.classList.remove("text-black");
+            }
+        });
+    
+        menuToggle.addEventListener("click", () => {
+            menuOpen = !menuOpen;
+            dropdownMenu.classList.toggle("hidden");
+    
+            if (menuOpen) {
+                console.log(header)
+                header.classList.add("bg-white", "shadow");
+                headerDiv.classList.add("border-b", "border-gray-300");
+                header.classList.remove("bg-transparent");
+                menuToggle.classList.add("text-black");
+                menuToggle.classList.remove("text-white");
+            } else if (window.scrollY <= 50) {
+                header.classList.add("bg-transparent");
+                header.classList.remove("bg-white", "shadow");
+                headerDiv.classList.remove("border-b", "border-gray-300");
+                menuToggle.classList.add("text-white");
+                menuToggle.classList.remove("text-black");
+            }
+        });
+
+        main.addEventListener("click", () => {
+            menuOpen = false;
+            dropdownMenu.classList.add("hidden");
+            header.classList.add("bg-transparent");
+            header.classList.remove("bg-white", "shadow");
+            headerDiv.classList.remove("border-b", "border-gray-300");
+            menuToggle.classList.add("text-white");
+            menuToggle.classList.remove("text-black");
+        })
+    </script>
+    
+    
+    
+</body>
+</html>
+

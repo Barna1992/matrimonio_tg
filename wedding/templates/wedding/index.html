@@ -1,0 +1,358 @@
+{% extends 'wedding/base.html' %}
+{% load static %}
+{% block title %}Home{% endblock %}
+{% block content %}
+<section id="slideshow" class="text-center py-12 h-screen flex flex-col justify-end items-center bg-cover bg-center transition-all duration-1000">
+    <h1 class="birthstone-bounce-medium text-white text-6xl md:text-6xl font-bold drop-shadow-md" style="text-transform: none !important; font-family: 'WaterFall' !important;">Tamara & Giovanni</h1>
+    <p class="text-white text-4xl font-bold mt-4 drop-shadow-md">5 luglio 2025</p>
+    <p class="text-white text-4xl font-bold drop-shadow-md mb-4">Ci sposiamo!</p>
+</section>
+
+<!-- IL NOSTRO MATRIMONIO Section -->
+<section class="my-20" id="section1">
+    <div class="desktop-wrapper20">
+    <h2 class="text-3xl font-bold text-center mb-8">IL NOSTRO MATRIMONIO</h2>
+    <div class="grid grid-cols-1">
+        <!-- Chiesa -->
+        <!-- Location -->
+        <div class="bg-white shadow rounded overflow-hidden">
+            <img src="{% static 'wedding/images/villa61_bis.jpg' %}" alt="Location" class="w-full h-48 object-cover">
+            <div class="p-4 text-center">
+                <h3 class="text-3xl font-bold">Cerimonia & Ricevimento</h3>
+                <p class="text-2xl font-bold">Casa delle Rose - centro estetico</p>
+                <p class="text-xl font-bold">Via Toscanini, 30 30020 Eraclea (VE)</p>
+                <a href="https://maps.app.goo.gl/xNZ3YHNpCEqWMSsn7" target="_blank" class="text-2xl font-bold">La trovi qui<i class="fa-solid fa-location-dot p-2"></i></a>
+            </div>
+        </div>
+        <div class="bg-white shadow rounded overflow-hidden mb-10" style="margin: 30px 0;">
+            <img src="{% static 'wedding/images/image3.jpeg' %}" alt="Location" class="w-full h-48 object-cover">
+            <div class="p-4 text-center">
+                <h3 class="text-3xl font-bold">Info</h3>
+                <p class="text-xl font-bold">Campeggio ammesso nel nostro giardino! Se intendi campeggiare, avvisaci cosi ti prepareremo la colazione per il giorno succesivo!</p>
+            </div>
+        </div>
+    </div>
+    </div>
+</section>
+
+<section class="relative py-12 text-center bg-cover bg-center" id="section2">
+        <h2 class="text-3xl font-bold text-center mb-8">LA GIORNATA</h2>
+
+        <div class="timeline">
+          <ul>
+            <li>
+              <div class="timeline-content-container">
+                <div class="timeline-content left-small">
+                <h1>16:30</h1>
+                <p>IL RITO DEL MATRIMONIO</p>
+              </div>
+              <div><img src="{% static 'wedding/images/rings.svg' %}"></div>
+            </div>
+            </li>
+            <li>
+                <div class="timeline-content-container">
+                    <div><img src="{% static 'wedding/images/cheers.png' %}"></div>
+                    <div class="timeline-content right-small">
+                    <h1>17:00</h1>
+                    <p>L'APERITIVO</p>
+                  </div>
+                </div>  
+            </li>
+            <li>
+                <div class="timeline-content-container">
+                    <div class="timeline-content left-small">
+                    <h1>19:30</h1>
+                    <p>LA CENA</p>
+                  </div>
+                  <div><img src="{% static 'wedding/images/dinner.svg' %}"></div>
+                </div>  
+            </li>
+            <li>
+                <div class="timeline-content-container">
+                    <div><img src="{% static 'wedding/images/cake.png' %}"></div>
+
+                    <div class="timeline-content right-small">
+                    <h1>21:00</h1>
+                    <p>IL TAGLIO DELLA TORTA</p>
+                  </div>
+                </div>  
+            </li>
+            <li>
+                <div class="timeline-content-container">
+                    <div class="timeline-content left-small">
+                    <h1>21:30</h1>
+                    <p>LA FESTA</p>
+                  </div>
+                  <div><img src="{% static 'wedding/images/party.svg' %}"></div>
+                </div>
+              </li>
+          </ul>
+      </div>
+
+</section>
+
+
+
+<!-- RSVP Section -->
+<section
+  class="py-12 bg-cover bg-center text-center relative mt-20"
+  id="section3">
+  <!-- Overlay for readability -->
+  <div class="absolute inset-0 bg-black bg-opacity-50"></div>
+
+  <!-- Content -->
+  <div class="relative z-10">
+    <h2 class="text-4xl font-bold text-white mb-4">Confermaci la tua presenza</h2>
+    <p class="mb-6 text-3xl text-white">
+      Non vediamo l’ora di festeggiare insieme.
+    </p>
+    <button
+      onclick="openModal()"
+      class="text-white text-2xl px-6 py-3 rounded-lg shadow bgcolor-green" style="text-transform: uppercase;"
+    >
+    Facci sapere se ci sarai.
+    </button>
+  </div>
+</section>
+
+
+
+<!-- RSVP Modal -->
+<div
+    id="rsvpModal"
+    class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center hidden z-[1000]"
+>
+    <div class="bg-white w-11/12 max-w-lg p-6 rounded-lg shadow-lg relative desktop-wrapper15">
+        <button
+            onclick="closeModal()"
+            class="absolute top-2 right-2 text-gray-500 hover:text-black text-5xl"
+        >
+            &times;
+        </button>
+        <h3 class="text-4xl font-bold mb-4">Conferma la Presenza</h3>
+        <p class="mb-4 text-3xl">... e segnalaci eventuali intolleranze</p>
+        <form id="rsvpForm" onsubmit="submitForm(event)">
+            <div class="mb-4">
+                <label for="name" class="block text-left text-gray-700">Nome</label>
+                <input
+                    type="text"
+                    id="name"
+                    class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
+                    required
+                />
+            </div>
+            <div class="mb-4">
+                <label for="surname" class="block text-left text-gray-700">Cognome</label>
+                <input
+                    type="text"
+                    id="surname"
+                    class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
+                    required
+                />
+            </div>
+            <div class="mb-4">
+                <label for="email" class="block text-left text-gray-700">Email</label>
+                <input
+                    type="email"
+                    id="email"
+                    class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
+                    required
+                />
+            </div>
+            <div class="mb-4">
+                <label for="presence" class="block text-left text-gray-700">Presenza</label>
+                <textarea
+                    id="presence"
+                    class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
+                    placeholder="Es. Tamara+Giovanni+Bambini"
+                ></textarea>
+            </div>
+            <div class="mb-4">
+                <label for="food" class="block text-left text-gray-700">Intolleranze</label>
+                <textarea
+                    id="food"
+                    class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
+                    placeholder="Eventuali richieste particolari"
+                ></textarea>
+            </div>
+            <button
+                type="submit"
+                class="w-full text-white px-6 py-2 rounded-lg shadow bgcolor-green "
+            >
+                INVIA
+            </button>
+        </form>
+    </div>
+</div>
+
+<section style="min-height: 500px;">
+    <img src="{% static 'wedding/images/caricatura.jpeg' %}" alt="Location">
+</section>
+
+<section class="py-12 text-center" id="section4">
+    <h2 class="text-4xl font-bold mb-4">LISTA NOZZE</h2>
+    <p class="mb-6 text-3xl">Se lo desideri, puoi contribuire al nostro sogno di andare in Africa!</p>
+
+    <!-- Slideshow Container -->
+    <div class="slideshow-container relative overflow-hidden w-full h-48 mb-10">
+        <div class="slides">
+            {% for i in "12345" %}
+            <div class="slide">
+                <img src="{% static 'wedding/images/viaggio'|add:i|add:'.jpeg' %}" alt="Viaggio {{ i }}" class="w-full h-48 object-cover">
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+    <p class="mb-6 text-xl iban" id="iban">IT69Y0890436280057000001672</p>
+    <p class="mb-6 text-3xl">Grazie ❤️</p>
+
+</section>
+
+
+<script>
+
+    document.getElementById("iban").addEventListener("click", function () {
+    const text = this.innerText;
+    navigator.clipboard.writeText(text).then(() => {
+        consoel.log("Text copied to clipboard!");
+    }).catch(err => {
+        console.error("Failed to copy: ", err);
+    });
+    });
+
+
+    // SLIDESHOW VIAGGIO
+    document.addEventListener("DOMContentLoaded", function () {
+        const slides = document.querySelector(".slides");
+        const totalSlides = document.querySelectorAll(".slide").length;
+        let index = 0;
+        console.log(slides, totalSlides)
+
+        setInterval(() => {
+            index = (index + 1) % totalSlides;
+            slides.style.transform = `translateX(-${index * 100}%)`;
+        }, 3000); // Change slide every 3 seconds
+    });
+
+    // SLIDESHOW SOPRA
+
+
+    const images = [
+    "{% static 'wedding/images/slide4.jpeg' %}",
+    "{% static 'wedding/images/slide2.jpeg' %}",
+    "{% static 'wedding/images/slide3.jpeg' %}"
+    ];
+
+    let currentIndex = 0;
+
+    function changeBackground() {
+    const slideshow = document.getElementById("slideshow");
+    
+    // Create a new Image object to determine dimensions
+    const img = new Image();
+    img.src = images[currentIndex];
+    
+
+    img.onload = () => {
+    // Check if the user is on a desktop PC (example: width > 1024px)
+    if (window.innerWidth > 768) {
+        slideshow.style.backgroundSize = "contain";
+        slideshow.style.backgroundRepeat = "no-repeat";
+    } else {
+        slideshow.style.backgroundRepeat = "no-repeat"; // Or adjust as needed
+        slideshow.style.backgroundSize = "contain";
+
+    }
+
+    // Update the background image
+    slideshow.style.backgroundImage = `url(${images[currentIndex]})`;
+
+    // Move to the next image, loop back to the start if at the end
+    currentIndex = (currentIndex + 1) % images.length;
+    };
+}
+
+    // Initialize the slideshow
+    changeBackground(); // Set the initial background
+    setInterval(changeBackground, 5000); // Change every 5 seconds
+
+
+
+    document.addEventListener("DOMContentLoaded", () => {
+        const countdownElement = document.getElementById("countdown");
+        const targetDate = new Date("2025-06-07T14:30:00");
+
+        function updateCountdown() {
+            const now = new Date();
+            const timeDifference = targetDate - now;
+
+            if (timeDifference <= 0) {
+                countdownElement.innerHTML = "È arrivato il grande giorno!";
+                clearInterval(interval);
+                return;
+            }
+
+            const days = Math.floor(timeDifference / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((timeDifference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((timeDifference % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((timeDifference % (1000 * 60)) / 1000);
+
+            countdownElement.innerHTML = `
+                <div class="countdown-numbers">
+                <div class="mb-8">${days} giorni</div>
+                <div class="mb-8">${hours} ore</div>
+                <div class="mb-8">${minutes} minuti</div>
+                <div class="mb-8">${seconds} secondi</div>
+                </div>    
+                `;
+        }
+
+        // Update countdown every second
+        const interval = setInterval(updateCountdown, 1000);
+        updateCountdown();
+    });
+
+
+    // MODAL CODE MANAGEMENT 
+    const openModal = () => {
+        document.getElementById('rsvpModal').classList.remove('hidden');
+    };
+
+    const closeModal = () => {
+        document.getElementById('rsvpModal').classList.add('hidden');
+    };
+
+    const submitForm = (event) => {
+        event.preventDefault();
+        const name = document.getElementById('name').value;
+        const surname = document.getElementById('surname').value;
+        const email = document.getElementById('email').value;
+        const presence = document.getElementById('presence').value;
+        const food = document.getElementById('food').value;
+        const data = { name, surname, email, presence, food };
+
+        fetch('/api/rsvp/', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(data),
+        })
+        .then(response => response.json())
+        .then(data => {
+            console.log('Success:', data);
+            // Handle success, e.g., close the modal, show a success message, etc.
+        })
+        .catch((error) => {
+            console.error('Error:', error);
+            // Handle error, e.g., show an error message
+        });
+
+        // Close modal after submission
+        closeModal();
+    };
+
+
+  </script>
+  
+{% endblock %}

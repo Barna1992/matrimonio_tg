@@ -1,0 +1,88 @@
+body {
+    font-family: 'Arsenal', sans-serif;
+    text-align: center;
+    color: #444;
+    background-color: #f9f9f9;
+}
+
+
+
+
+/* Styles for tablets and larger devices */
+@media (min-width: 768px) {
+    body {
+        font-size: 18px;
+        font-family: 'Arsenal', sans-serif;
+
+    }
+    countdown-numbers {
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+    }
+}
+
+/* Styles for desktops and larger devices */
+@media (min-width: 1024px) {
+    body {
+        font-size: 20px;
+        font-family: 'Arsenal', sans-serif;
+
+    }
+}
+
+
+
+header {
+    background: url('/static/images/header.jpg') no-repeat center center/cover;
+    color: white;
+    padding: 50px 20px;
+}
+
+header h1 {
+    font-size: 3rem;
+    margin: 0;
+}
+
+main section {
+    margin: 40px 0;
+}
+
+.location img, .gallery img {
+    width: 100%;
+    max-width: 300px;
+    margin: 10px auto;
+    border-radius: 10px;
+}
+
+.btn, .btn-heart {
+    background-color: #ff69b4;
+    color: white;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 1.2rem;
+}
+
+.amatic-sc-regular {
+    font-family: "Amatic SC", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+  }
+  
+  .amatic-sc-bold {
+    font-family: "Amatic SC", sans-serif;
+    font-weight: 700;
+    font-style: normal;
+  }
+
+
+  
+  #slideshow {
+    width: 100%; /* Full width of the container */
+    height: 100vh; /* Full height of the viewport */
+    background-size: cover; /* Ensures the background covers the container */
+    background-position: center; /* Centers the image */
+    background-repeat: no-repeat; /* Prevents tiling */
+    transition: background-image 1s ease-in-out; /* Smooth transition effect */
+}
