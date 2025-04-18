@@ -142,5 +142,5 @@ STATIC_URL = '/static/'  # URL for accessing static files in templates
 STATICFILES_DIRS = [BASE_DIR / "static"]  # Directory for development static files
 
 CORS_ALLOWED_ORIGINS = [
-    "matrimoniotamaragiovanni.pythonanywhere.com",
+    "http://matrimoniotamaragiovanni.pythonanywhere.com",
 ]
