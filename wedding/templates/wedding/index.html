@@ -28,7 +28,7 @@
             <img src="{% static 'wedding/images/image3.jpeg' %}" alt="Location" class="w-full h-48 object-cover">
             <div class="p-4 text-center">
                 <h3 class="text-3xl font-bold">Info</h3>
-                <p class="text-xl font-bold">Campeggio ammesso nel nostro giardino! Se intendi campeggiare, avvisaci cosi ti prepareremo la colazione per il giorno succesivo!</p>
+                <p class="text-xl font-bold">campeggio ammesso nel nostro giardino. Se volete fermarvi la sera potete portare le vostre tende e dormire con noi. Organizzeremo la colazione del giorno dopo</p>
             </div>
         </div>
     </div>
@@ -104,14 +104,14 @@
   <div class="relative z-10">
     <h2 class="text-4xl font-bold text-white mb-4">Confermaci la tua presenza</h2>
     <p class="mb-6 text-3xl text-white">
-      Non vediamo l’ora di festeggiare insieme.
+      Non vediamo l’ora di festeggiare insieme, ma abbiamo bisogno di sapere se ci sarai!
     </p>
     <button
       onclick="openModal()"
       class="text-white text-2xl px-6 py-3 rounded-lg shadow bgcolor-green" style="text-transform: uppercase;"
     >
-    Facci sapere se ci sarai.
-    </button>
+      Clicca qui
+</button>
   </div>
 </section>
 
@@ -130,7 +130,7 @@
             &times;
         </button>
         <h3 class="text-4xl font-bold mb-4">Conferma la Presenza</h3>
-        <p class="mb-4 text-3xl">... e segnalaci eventuali intolleranze</p>
+        <p class="mb-4 text-3xl">... e segnalaci eventuali allergie / intolleranze</p>
         <form id="rsvpForm" onsubmit="submitForm(event)">
             <div class="mb-4">
                 <label for="name" class="block text-left text-gray-700">Nome</label>
@@ -168,12 +168,45 @@
                 ></textarea>
             </div>
             <div class="mb-4">
-                <label for="food" class="block text-left text-gray-700">Intolleranze</label>
+                <label for="intollerance" class="block text-left text-gray-700">Intolleranze</label>
                 <textarea
-                    id="food"
+                    id="intollerance"
                     class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
-                    placeholder="Eventuali richieste particolari"
+                    placeholder="Segnalaci qui eventuali intolleranze"
                 ></textarea>
+            </div>
+            <div class="mb-4">
+                <label for="allergy" class="block text-left text-gray-700">Allergie</label>
+                <textarea
+                    id="allergy"
+                    class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
+                    placeholder="Segnalaci qui eventuali allergie"
+                ></textarea>
+            </div>
+            <div class="mb-4">
+                <span class="block text-left text-gray-700 mb-2">Vuoi campeggiare?</span>
+                <div class="flex items-center space-x-4">
+                    <label class="flex items-center space-x-2">
+                        <input
+                            type="radio"
+                            name="camping"
+                            value="si"
+                            required
+                            class="form-radio text-blue-600"
+                        />
+                        <span>Sì</span>
+                    </label>
+                    <label class="flex items-center space-x-2">
+                        <input
+                            type="radio"
+                            name="camping"
+                            value="no"
+                            checked
+                            class="form-radio text-blue-600"
+                        />
+                        <span>No</span>
+                    </label>
+                </div>
             </div>
             <button
                 type="submit"
@@ -226,7 +259,6 @@
         const slides = document.querySelector(".slides");
         const totalSlides = document.querySelectorAll(".slide").length;
         let index = 0;
-        console.log(slides, totalSlides)
 
         setInterval(() => {
             index = (index + 1) % totalSlides;
@@ -278,41 +310,6 @@
 
 
 
-    document.addEventListener("DOMContentLoaded", () => {
-        const countdownElement = document.getElementById("countdown");
-        const targetDate = new Date("2025-06-07T14:30:00");
-
-        function updateCountdown() {
-            const now = new Date();
-            const timeDifference = targetDate - now;
-
-            if (timeDifference <= 0) {
-                countdownElement.innerHTML = "È arrivato il grande giorno!";
-                clearInterval(interval);
-                return;
-            }
-
-            const days = Math.floor(timeDifference / (1000 * 60 * 60 * 24));
-            const hours = Math.floor((timeDifference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            const minutes = Math.floor((timeDifference % (1000 * 60 * 60)) / (1000 * 60));
-            const seconds = Math.floor((timeDifference % (1000 * 60)) / 1000);
-
-            countdownElement.innerHTML = `
-                <div class="countdown-numbers">
-                <div class="mb-8">${days} giorni</div>
-                <div class="mb-8">${hours} ore</div>
-                <div class="mb-8">${minutes} minuti</div>
-                <div class="mb-8">${seconds} secondi</div>
-                </div>    
-                `;
-        }
-
-        // Update countdown every second
-        const interval = setInterval(updateCountdown, 1000);
-        updateCountdown();
-    });
-
-
     // MODAL CODE MANAGEMENT 
     const openModal = () => {
         document.getElementById('rsvpModal').classList.remove('hidden');
@@ -328,9 +325,13 @@
         const surname = document.getElementById('surname').value;
         const email = document.getElementById('email').value;
         const presence = document.getElementById('presence').value;
-        const food = document.getElementById('food').value;
-        const data = { name, surname, email, presence, food };
+        const allergy = document.getElementById('allergy').value;
+        const intollerance = document.getElementById('intollerance').value;
+        const camping = document.querySelector('input[name="camping"]:checked').value === "si" ? true : false;
 
+        const data = { name, surname, email, presence, allergy, intollerance, camping };
+
+        console.log(data)
         fetch('/api/rsvp/', {
             method: 'POST',
             headers: {

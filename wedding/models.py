@@ -16,7 +16,9 @@ class RSVP(models.Model):
     surname = models.CharField(max_length=100)
     email = models.EmailField()
     presence = models.CharField(max_length=1000)
-    food = models.CharField(max_length=1000)
+    intollerance = models.CharField(max_length=1000, default='')
+    allergy = models.CharField(max_length=1000, default='')
+    camping = models.BooleanField(default=False)
 
     def __str__(self):
         return f"{self.name} {self.surname}"

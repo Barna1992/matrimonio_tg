@@ -96,10 +96,8 @@ def survey(request):
 
 def dashboard(request):
     rsvps = RSVP.objects.all()
-    friends = Friend.objects.all()
     context = {
         'rsvps': rsvps,
-        'friends': friends
     }
     return render(request, 'wedding/dashboard.html', context)
 
