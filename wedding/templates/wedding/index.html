@@ -342,6 +342,7 @@
         .then(response => response.json())
         .then(data => {
             console.log('Success:', data);
+            window.location.reload();
             // Handle success, e.g., close the modal, show a success message, etc.
         })
         .catch((error) => {
